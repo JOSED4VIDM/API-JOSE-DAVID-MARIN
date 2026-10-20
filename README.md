@@ -68,6 +68,21 @@ otro ID en MongoDB, la migración informa el conflicto y no lo oculta.
 | `GET` | `/api/aprendices` | Consulta todos los aprendices. |
 | `GET` | `/api/aprendices/{aprendiz_id}` | Consulta un aprendiz por ID. |
 
+## Menú de la API en la terminal
+
+La carpeta `views` contiene un menú interactivo para consultar la API de
+producción desde PowerShell. Desde la raíz del proyecto, ejecútalo con:
+
+```powershell
+py views\api_menu.py
+```
+
+El menú permite comprobar la conexión con MongoDB, listar y buscar aprendices,
+registrar aprendices y mostrar los enlaces de la API. La opción de registro
+guarda datos en producción. Para apuntar a la API local, define
+`$env:APRENDICES_API_URL = "http://127.0.0.1:8000"` antes de ejecutarlo.
+Los enlaces y las instrucciones están también en [views/README.md](views/README.md).
+
 ## Preparar GitHub
 
 El `.gitignore` excluye dependencias, builds, entornos virtuales, la base de
