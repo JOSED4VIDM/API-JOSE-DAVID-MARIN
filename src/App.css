@@ -367,3 +367,287 @@ tbody tr:hover { background: #fbfdfb; }
     transition-duration: 0.01ms !important;
   }
 }
+
+/* Minimal visual system */
+.page-shell {
+  width: min(1040px, calc(100% - 64px));
+}
+
+.topbar {
+  height: 72px;
+}
+
+.brand {
+  gap: 9px;
+  font-size: 14px;
+  letter-spacing: -0.25px;
+}
+
+.brand-mark {
+  width: 30px;
+  height: 30px;
+  border-radius: 8px;
+  background: var(--ink);
+  font-size: 15px;
+}
+
+.brand-light { color: #92968f; }
+.topbar-actions { gap: 24px; }
+
+.api-status {
+  gap: 7px;
+  color: #676d66;
+  font-size: 12px;
+}
+
+.api-status.conectada .status-dot {
+  background: #5b936e;
+  box-shadow: 0 0 0 3px #5b936e18;
+}
+
+.api-status.desconectada .status-dot { background: #c46e66; }
+
+.docs-link {
+  color: #424740;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.docs-link span { color: var(--muted); }
+
+.intro { padding: 62px 0 30px; }
+
+.eyebrow, .section-number {
+  gap: 9px;
+  color: #858a83;
+  font-size: 10px;
+  font-weight: 650;
+  letter-spacing: 1.15px;
+}
+
+.eyebrow span {
+  width: 6px;
+  height: 6px;
+  background: #6b9478;
+}
+
+.intro h1 {
+  margin: 15px 0 10px;
+  font-size: clamp(36px, 5vw, 46px);
+  font-weight: 650;
+  letter-spacing: -2px;
+  line-height: 1.12;
+}
+
+.intro h1 span { color: var(--green-dark); }
+.intro p { color: #777d76; font-size: 14px; }
+
+.dashboard {
+  grid-template-columns: 1.15fr 0.85fr;
+  gap: 16px;
+  margin-bottom: 18px;
+}
+
+.panel {
+  border: 1px solid #e8e9e5;
+  border-radius: 11px;
+  background: #fff;
+  box-shadow: 0 1px 2px #20231f05;
+}
+
+.form-panel, .lookup-panel { padding: 24px; }
+
+.section-number { font-size: 9px; }
+
+.panel h2 {
+  margin-top: 8px;
+  color: #252923;
+  font-size: 18px;
+  font-weight: 620;
+  letter-spacing: -0.35px;
+}
+
+.heading-icon {
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
+  background: #f2f4f0;
+  color: #526b58;
+  font-size: 19px;
+}
+
+.search-icon { font-size: 23px; }
+.learner-form { gap: 14px; margin-top: 22px; }
+
+.learner-form label, .lookup-form label {
+  gap: 7px;
+  color: #50554e;
+  font-size: 12px;
+  font-weight: 550;
+}
+
+.learner-form input, .lookup-control input {
+  height: 43px;
+  padding: 0 12px;
+  border-color: #e5e7e2;
+  border-radius: 7px;
+  color: #252923;
+  font-size: 13px;
+}
+
+.learner-form input::placeholder, .lookup-control input::placeholder { color: #a1a59e; }
+
+.learner-form input:focus, .lookup-control input:focus {
+  border-color: #73927a;
+  box-shadow: 0 0 0 3px #42765b12;
+}
+
+.primary-button {
+  height: 43px;
+  margin-top: 3px;
+  border-radius: 7px;
+  background: #315c45;
+  font-size: 13px;
+  font-weight: 620;
+}
+
+.primary-button:hover:not(:disabled) { background: #274b38; }
+.lookup-form { margin-top: 24px; }
+.lookup-control { gap: 8px; margin-top: 9px; }
+
+.lookup-control button {
+  flex-basis: 43px;
+  border-radius: 7px;
+  background: #30352f;
+  font-size: 18px;
+}
+
+.lookup-hint { margin-top: 17px; color: #858a83; font-size: 12px; }
+
+.lookup-result {
+  gap: 12px;
+  margin-top: 16px;
+  padding: 12px;
+  border-color: #e8e9e5;
+  border-radius: 7px;
+}
+
+.result-id { font-size: 12px; }
+.lookup-result strong { font-size: 12px; }
+.lookup-result div span, .result-program { font-size: 11px; }
+
+.alert {
+  gap: 11px;
+  margin-bottom: 15px;
+  padding: 12px 14px;
+  border-radius: 7px;
+  font-size: 12px;
+}
+
+.error-alert { border-color: #f0d9d6; background: #fff9f8; color: #934d47; }
+.success-alert { border-color: #dce9de; background: #f6faf6; color: #426d4e; }
+
+.table-panel { margin-bottom: 25px; }
+.table-heading { padding: 20px 22px 17px; }
+.table-heading h2 { gap: 9px; font-size: 17px; }
+
+.count-badge {
+  min-width: 23px;
+  height: 23px;
+  background: #f0f3ef;
+  color: #526b58;
+  font-size: 11px;
+  font-weight: 650;
+}
+
+.refresh-button {
+  gap: 7px;
+  padding: 8px 11px;
+  border-color: #e5e7e2;
+  border-radius: 7px;
+  color: #51564f;
+  font-size: 12px;
+  font-weight: 550;
+}
+
+.refresh-button:hover:not(:disabled) { border-color: #c9d5ca; background: #fafbf9; }
+thead { background: #fafaf8; }
+
+th {
+  padding-top: 11px;
+  padding-bottom: 11px;
+  color: #858a83;
+  font-size: 10px;
+  font-weight: 650;
+  letter-spacing: 0.65px;
+}
+
+th:first-child, td:first-child { padding-left: 22px; }
+
+td {
+  padding-top: 14px;
+  padding-bottom: 14px;
+  border-top-color: #f0f1ee;
+  color: #666b64;
+  font-size: 12px;
+}
+
+tbody tr:hover { background: #fcfcfa; }
+.id-cell { color: #52765b; font-size: 11px; font-weight: 650; }
+.name-cell { color: #292d27; font-size: 12px; font-weight: 600; }
+
+.program-tag {
+  padding: 5px 8px;
+  border-radius: 5px;
+  background: #f4f5f2;
+  color: #5e665c;
+  font-size: 11px;
+}
+
+.empty-state, .loading-state {
+  gap: 8px;
+  padding: 38px 15px;
+  color: #858a83;
+  font-size: 12px;
+}
+
+.empty-state > span { color: #9daf9f; font-size: 22px; }
+.empty-state strong { color: #454a43; font-size: 13px; }
+.empty-state p { font-size: 12px; }
+
+.table-footer {
+  padding: 13px 22px;
+  color: #8a8f88;
+  font-size: 11px;
+}
+
+.table-footer a { color: #526b58; font-weight: 600; }
+.page-footer { padding-bottom: 25px; color: #969a93; font-size: 10px; letter-spacing: 0.8px; }
+.page-footer span { color: #64816b; }
+
+@media (max-width: 700px) {
+  .page-shell { width: min(100% - 32px, 540px); }
+  .intro { padding: 43px 0 25px; }
+  .intro h1 { letter-spacing: -1.6px; }
+  .dashboard { grid-template-columns: 1fr; gap: 13px; }
+  .form-panel, .lookup-panel { padding: 20px; }
+  .table-heading { padding: 18px 17px 15px; }
+  th, td { padding-right: 13px; padding-left: 13px; }
+  th:first-child, td:first-child { padding-left: 17px; }
+  .table-footer { padding: 12px 17px; }
+}
+
+@media (max-width: 420px) {
+  .topbar-actions { gap: 11px; }
+  .api-status, .docs-link { font-size: 11px; }
+  .table-heading h2 { font-size: 15px; }
+  .refresh-button { padding: 7px 8px; }
+}
+
+@media (max-width: 360px) {
+  .page-shell { width: calc(100% - 24px); }
+  .topbar { height: 64px; }
+  .topbar-actions { max-width: 62%; }
+  .brand { gap: 7px; font-size: 13px; }
+  .brand-mark { width: 28px; height: 28px; }
+}
