@@ -25,7 +25,4 @@ services:
     staticPublishPath: ./dist
     envVars:
       - key: VITE_API_URL
-        fromService:
-          type: web
-          name: aprendices-api
-          property: host
+        value: https://aprendices-api.onrender.com
