@@ -108,5 +108,10 @@ si cambias el nombre del sitio, actualiza también `ALLOWED_ORIGINS` en
 la API, la referencia de `VITE_API_URL` en ese archivo debe seguir apuntando
 al nombre nuevo.
 
+La API está configurada con el plan gratuito de Render. Render puede suspender
+el servicio tras un periodo sin tráfico; la primera petición posterior puede
+tardar mientras vuelve a iniciar. El sistema de archivos local del servicio
+no es persistente, por lo que MongoDB Atlas es el almacenamiento de los datos.
+
 Cuando el despliegue termine, abre el dominio del sitio estático. La
 documentación Swagger estará en el dominio de la API seguido de `/docs`.
