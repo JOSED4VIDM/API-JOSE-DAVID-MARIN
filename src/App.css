@@ -622,8 +622,9 @@ tbody tr:hover { background: #fcfcfa; }
 }
 
 .table-footer a { color: #526b58; font-weight: 600; }
-.page-footer { padding-bottom: 25px; color: #969a93; font-size: 10px; letter-spacing: 0.8px; }
+.page-footer { display: grid; justify-items: center; gap: 7px; padding-bottom: 25px; color: #969a93; font-size: 10px; letter-spacing: 0.8px; }
 .page-footer span { color: #64816b; }
+.page-footer small { color: #777d76; font-size: 11px; font-weight: 500; letter-spacing: 0; }
 
 @media (max-width: 700px) {
   .page-shell { width: min(100% - 32px, 540px); }

@@ -262,7 +262,10 @@ function App() {
         </footer>
       </section>
 
-      <footer className="page-footer">APRENDE <span>•</span> MONGODB ATLAS + FASTAPI</footer>
+      <footer className="page-footer">
+        <span>APRENDE <span>•</span> MONGODB ATLAS + FASTAPI</span>
+        <small>Desarrollador: Jose David Marin</small>
+      </footer>
     </main>
   )
 }
