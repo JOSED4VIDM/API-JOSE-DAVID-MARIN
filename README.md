@@ -67,6 +67,7 @@ otro ID en MongoDB, la migración informa el conflicto y no lo oculta.
 | `POST` | `/api/aprendices` | Registra un aprendiz. |
 | `GET` | `/api/aprendices` | Consulta todos los aprendices. |
 | `GET` | `/api/aprendices/{aprendiz_id}` | Consulta un aprendiz por ID. |
+| `PUT` | `/api/aprendices/{aprendiz_id}` | Actualiza el nombre, correo y programa de un aprendiz. |
 
 ## Menú de la API en la terminal
 
@@ -77,9 +78,9 @@ producción desde PowerShell. Desde la raíz del proyecto, ejecútalo con:
 py views\api_menu.py
 ```
 
-El menú permite comprobar la conexión con MongoDB, listar y buscar aprendices,
-registrar aprendices y mostrar los enlaces de la API. La opción de registro
-guarda datos en producción. Para apuntar a la API local, define
+El menú permite comprobar la conexión con MongoDB, listar, buscar, registrar y
+actualizar aprendices, además de mostrar los enlaces de la API. Las opciones
+de registro y actualización modifican datos en producción. Para apuntar a la API local, define
 `$env:APRENDICES_API_URL = "http://127.0.0.1:8000"` antes de ejecutarlo.
 Los enlaces y las instrucciones están también en [views/README.md](views/README.md).
 

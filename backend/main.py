@@ -113,7 +113,7 @@ app.add_middleware(
     CORSMiddleware,
     allow_origins=get_allowed_origins(),
     allow_credentials=False,
-    allow_methods=["GET", "POST"],
+    allow_methods=["GET", "POST", "PUT"],
     allow_headers=["Content-Type"],
 )
 
@@ -219,6 +219,39 @@ def get_aprendiz(aprendiz_id: int, request: Request) -> Aprendiz:
         raise HTTPException(
             status_code=status.HTTP_503_SERVICE_UNAVAILABLE,
             detail="No fue posible consultar el aprendiz en MongoDB.",
+        ) from error
+
+    if document is None:
+        raise HTTPException(
+            status_code=status.HTTP_404_NOT_FOUND,
+            detail="No se encontró el aprendiz.",
+        )
+    return Aprendiz(**document)
+
+
+@app.put("/api/aprendices/{aprendiz_id}", response_model=Aprendiz)
+def update_aprendiz(
+    aprendiz_id: int,
+    aprendiz: AprendizCreate,
+    request: Request,
+) -> Aprendiz:
+    learners, _ = get_collections(request)
+    try:
+        document = learners.find_one_and_update(
+            {"id": aprendiz_id},
+            {"$set": aprendiz.model_dump()},
+            projection={"_id": 0},
+            return_document=ReturnDocument.AFTER,
+        )
+    except DuplicateKeyError as error:
+        raise HTTPException(
+            status_code=status.HTTP_409_CONFLICT,
+            detail="Ya existe otro aprendiz registrado con ese correo.",
+        ) from error
+    except PyMongoError as error:
+        raise HTTPException(
+            status_code=status.HTTP_503_SERVICE_UNAVAILABLE,
+            detail="No fue posible actualizar el aprendiz en MongoDB.",
         ) from error
 
     if document is None:

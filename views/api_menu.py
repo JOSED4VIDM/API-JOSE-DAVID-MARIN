@@ -66,6 +66,23 @@ def register_learner() -> None:
     print_json(request_api("/api/aprendices", method="POST", body=learner))
 
 
+def update_learner() -> None:
+    learner_id = read_positive_id()
+    learner = {
+        "nombre": input("Nuevo nombre completo: ").strip(),
+        "correo": input("Nuevo correo electrónico: ").strip(),
+        "programa": input("Nuevo programa de formación: ").strip(),
+    }
+    print("\nAprendiz actualizado:")
+    print_json(
+        request_api(
+            f"/api/aprendices/{learner_id}",
+            method="PUT",
+            body=learner,
+        )
+    )
+
+
 def main() -> None:
     print("=== MENÚ DE LA API DE APRENDICES ===")
     print(f"API configurada: {API_URL}")
@@ -76,7 +93,8 @@ def main() -> None:
             "\n2. Listar aprendices"
             "\n3. Buscar aprendiz por ID"
             "\n4. Registrar aprendiz"
-            "\n5. Mostrar enlaces de la API"
+            "\n5. Actualizar aprendiz por ID"
+            "\n6. Mostrar enlaces de la API"
             "\n0. Salir"
         )
         option = input("\nElige una opción: ").strip()
@@ -100,10 +118,16 @@ def main() -> None:
         elif option == "4":
             try:
                 register_learner()
-            except RuntimeError as error:
+            except (RuntimeError, ValueError) as error:
                 print(f"\nNo se pudo completar la solicitud: {error}")
             continue
         elif option == "5":
+            try:
+                update_learner()
+            except (RuntimeError, ValueError) as error:
+                print(f"\nNo se pudo completar la solicitud: {error}")
+            continue
+        elif option == "6":
             show_links()
             continue
         else:

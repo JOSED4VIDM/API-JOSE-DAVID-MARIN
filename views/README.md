@@ -14,8 +14,9 @@ py views\api_menu.py
 ```
 
 El menú permite comprobar la conexión, listar aprendices, buscar por ID,
-registrar un aprendiz y consultar los enlaces. La opción de registro guarda
-los datos en la base de datos de producción.
+registrar y actualizar un aprendiz y consultar los enlaces. Las opciones de
+registro y actualización guardan los datos en la base de datos de producción.
+La actualización reemplaza el nombre, correo y programa del ID indicado.
 
 Para usar una API local en lugar de Render:
 
