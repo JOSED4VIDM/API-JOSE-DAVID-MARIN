@@ -1,0 +1,30 @@
+services:
+  - type: web
+    name: aprendices-api
+    runtime: python
+    rootDir: backend
+    buildCommand: pip install -r requirements.txt
+    startCommand: uvicorn main:app --host 0.0.0.0 --port $PORT
+    healthCheckPath: /health
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.12.8
+      - key: MONGODB_URI
+        sync: false
+      - key: MONGODB_DATABASE
+        value: aprendices_db
+      - key: ALLOWED_ORIGINS
+        value: https://aprendices-web.onrender.com
+
+  - type: web
+    name: aprendices-web
+    runtime: static
+    rootDir: .
+    buildCommand: npm ci && npm run build
+    staticPublishPath: ./dist
+    envVars:
+      - key: VITE_API_URL
+        fromService:
+          type: web
+          name: aprendices-api
+          property: host
